@@ -31,6 +31,9 @@ class UsersController extends Controller{
             'password'  =>  'required|confirmed|min:6'
         ]);
 
+
+
+
         return ;
         $users = User::create([]);
 
