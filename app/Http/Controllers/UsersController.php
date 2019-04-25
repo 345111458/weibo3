@@ -31,12 +31,13 @@ class UsersController extends Controller{
             'password'  =>  'required|confirmed|min:6'
         ]);
 
+        $users = User::create([
+            'name'  =>  $request->name,
+            'email'  =>  $request->email,
+            'password'  =>  $request->password,
+        ]);
 
-
-
-        return ;
-        $users = User::create([]);
-
-
+        session()->flash('success' , '欢迎，您将在这里开启一段新的旅程~');
+        return redirect()->route('users.show',[$users]);
     }
 }
