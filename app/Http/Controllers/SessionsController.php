@@ -9,6 +9,13 @@ use Auth;
 class SessionsController extends Controller{
     //
 
+    public function __construct(){
+
+        $this->middleware('guest',[
+            'only'  =>  ['create']
+        ]);
+    }
+
     public function create(){
 
 
@@ -27,7 +34,9 @@ class SessionsController extends Controller{
 
 
             session()->flash('success', '欢迎回来!');
-            return redirect()->route('users.show',[Auth::user()]);
+            $fill = route('users.show',[Auth::user()]);
+
+            return redirect()->intended($fill);
         }else{
 
             session()->flash('danger', '很抱歉，您的邮箱和密码不匹配');
