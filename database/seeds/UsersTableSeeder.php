@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
         $user->name = 'Summer';
         $user->email = '345111458@qq.com';
         $user->password = bcrypt('345111458@qq.com');
+        $user->is_admin = true;
         $user->save();
     }
 }
