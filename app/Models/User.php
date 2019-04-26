@@ -14,6 +14,12 @@ class User extends Authenticatable
     protected $table = 'users';
 
 
+    public function statuses(){
+
+
+        return $this->hasMany(Status::class);
+    }
+
     /**
      * The attributes that are mass assignable.
      *
