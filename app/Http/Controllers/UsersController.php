@@ -43,4 +43,13 @@ class UsersController extends Controller{
         session()->flash('success' , '欢迎，您将在这里开启一段新的旅程~');
         return redirect()->route('users.show',[$users]);
     }
+
+
+
+    public function destroy(){
+
+        Auth::logout();
+        session()->flash('success','您已成功退出！');
+        return redirect('login');
+    }
 }
