@@ -16,14 +16,14 @@ class SessionsController extends Controller{
     }
 
 
-    public function store(Request $request,User $user){
+    public function store(Request $request){
 
         $credentials = $this->validate($request , [
             'email'     =>  'required|email|max:255',
             'password'  =>  'required'
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials,$request->has('remember'))) {
 
 
             session()->flash('success', '欢迎回来!');
@@ -37,7 +37,6 @@ class SessionsController extends Controller{
 
 
     }
-
 
 
     public function destroy(){
