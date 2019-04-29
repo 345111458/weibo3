@@ -13,6 +13,8 @@
           @include('shared._user_info', ['user' => Auth::user()])
         </section>
       </aside>
+
+
     </div>
   @else
     <div class="jumbotron">
